@@ -1,0 +1,2 @@
+# Airflow-Operator
+We will cover topics- Apache Airflow, Docker Installation, Python Operator, Bash Operator, Postgres Operator, DAG Versioning, Task-Priority, Trigger Rules, Task with SLAs, Timeout, Callback, Callback Failure, XCOM, Concurrency, Dependency Helpers, Cross Helpers, Executors, Providers, Task Flow API, Templated Fields, Dynamic Parameters, BranchPythonOperator, Scheduling, BranchSQLOperator, BranchDateTimeOperator, BranchDayOfWeekOperator, SubDAGOperator, TaskGroups, TriggerDAGRunOperator, LatestOnlyOperator, DummyOperator etc.
