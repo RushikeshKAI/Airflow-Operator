@@ -1,5 +1,5 @@
 from airflow import DAG
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 from airflow.operators.python import PythonOperator
 from airflow.operators.dummy import DummyOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
@@ -15,12 +15,13 @@ default_args={
 }
 
 
-with DAG('target_dag', default_args=default_args, schedule_interval=None, catchup=False) as dag:
+with DAG('target_dag', default_args=default_args, schedule_interval='15 * * * *', catchup=False) as dag:
 
     waiting_end_parent_dag = ExternalTaskSensor(
         task_id='waiting_end_parent_dag',
         external_dag_id='parent_dag',
-        external_task_id='end'
+        external_task_id='end',
+        execution_delta=timedelta(minutes=5)
     )
 
     process_ml = BashOperator(
@@ -30,7 +31,7 @@ with DAG('target_dag', default_args=default_args, schedule_interval=None, catchu
 
     )
 
-    waiting_end_parent_dag >> process_ml 
+    waiting_end_parent_dag >> process_ml
 
 
     # is_in_time_frame = BranchDateTimeOperator(
