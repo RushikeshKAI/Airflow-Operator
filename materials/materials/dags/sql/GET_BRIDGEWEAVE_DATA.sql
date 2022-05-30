@@ -1,0 +1,1 @@
+SELECT * FROM bridge_table WHERE TRXN_DATE BETWEEN SYMMETRIC {{ params.begin_date }} AND {{ params.end_date }};
