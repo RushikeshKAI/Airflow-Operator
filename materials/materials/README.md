@@ -13,7 +13,7 @@ This repository contains a **Docker Compose File** of [apache-airflow](https://g
 
 Pull the image from the Docker repository.
 
-    docker pull apache/airflow:2.0.0
+    docker pull apache/airflow:2.1.0
 
 ## Usage
 
@@ -34,4 +34,4 @@ Go to Admin -> Connections and Edit "postgres_default" set this values (equivale
 - Login : postgres
 - Password : postgres
 
-Enjoy!
+
