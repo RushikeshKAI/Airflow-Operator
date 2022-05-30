@@ -26,6 +26,11 @@ By default, docker-airflow runs Airflow with **LocalExecutor** :
 
     docker-compose -f docker-compose.yml up -d
 
+## Note:
+**If you face any kind of permision issues to R/W files, please use below command:**
+    sudo chmod -R 777 <file-path-here-to_chane_permissions>
+
+
 NB : If you want to have DAGs example loaded (default=False), you've to set the following environment variable :
 
 `AIRFLOW__CORE__LOAD_EXAMPLES`
