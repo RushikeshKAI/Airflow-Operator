@@ -28,8 +28,8 @@ with DAG('branch_week_dag', default_args=default_args, schedule_interval='@daily
         task_id='wednesday',
         follow_task_ids_if_true=['task_c'],
         follow_task_ids_if_false=['end'],
-        weekday=WeekDay.WEDNESDAY,
-        use_task_execution_day=True
+        use_task_execution_day=True,
+        week_day=WeekDay.TUESDAY
     )
 
     end = DummyOperator(

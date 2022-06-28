@@ -20,7 +20,7 @@ with DAG('parent_dag', default_args=default_args, schedule_interval='@daily', ca
     )
 
     group_training_tasks = training_groups()
-
+    subdag = subdag_factory(dag.dag_id, "sub_dag", default_args)
     # process_ml = TriggerDagRunOperator(
     #     task_id='process_ml',
     #     trigger_dag_id='{{ var.value.my_dag_id }}',
@@ -32,8 +32,7 @@ with DAG('parent_dag', default_args=default_args, schedule_interval='@daily', ca
     # )
 
     end = DummyOperator(
-        task_id='end',
-        bash_command='echo "end"'
+        task_id='end'
     )
 
-    start >> group_training_tasks >> end
+    start >> group_training_tasks >> subdag >> end

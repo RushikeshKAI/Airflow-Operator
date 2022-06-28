@@ -5,7 +5,7 @@ from airflow.operators.dummy import DummyOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.operators.python import BranchPythonOperator
 from airflow.operators.sql import BranchSQLOperator
-from airflow.operators.datetinchme import BranchDateTimeOperator
+from airflow.operators.datetime import BranchDateTimeOperator
 from airflow.operators.bash import BashOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 
@@ -27,8 +27,6 @@ with DAG('target_dag', default_args=default_args, schedule_interval='15 * * * *'
     process_ml = BashOperator(
         task_id='process_ml',
         bash_command="echo 'processing_ml'"
-
-
     )
 
     waiting_end_parent_dag >> process_ml

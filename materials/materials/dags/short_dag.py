@@ -18,7 +18,6 @@ with DAG('short_dag', default_args=default_args, schedule_interval='@daily', cat
         task_id='task_a'
     )
 
-
     task_b = DummyOperator(
         task_id='task_b'
     )
